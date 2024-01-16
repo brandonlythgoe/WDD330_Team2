@@ -16,7 +16,7 @@ function addProductToCart(product) {
   // value to the same key
   else {
     storage.push(product);
-    setLocalStorage("so-cart", storage)
+    setLocalStorage("so-cart", storage);
   }
 }
 // add to cart button event handler
