@@ -94,6 +94,12 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
+.title {
+  text-transform: capitalize;
+}
+/* End utility classes */
+
+/* Cart animation */
 .mainmenu {
   position: sticky;
   top: 0;
@@ -120,7 +126,7 @@ button {
 .stuffed {
   animation: rotateAndBack 1s ease forwards;
 }
-/* End utility classes */
+/* End Cart Animation */
 
 /* Alert classes */
 .weekend {
@@ -201,20 +207,6 @@ fieldset {
   background: var(--dark-grey);
 }
 
-#thanks-container {
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100%; 
-  height: 100%; 
-  background-color: rgba(96, 96, 96, 0.5); 
-  z-index: 1000; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  display: none;
-}
-
 #register-thanks {
   padding: 1rem 2rem;
   background: var(--dark-grey);
@@ -234,6 +226,103 @@ fieldset {
     opacity: 0;
   }
 }
+
+/* Newsletter styles */
+#newsletter-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9000;
+  width: 100%;
+  height: 100%;
+  background: var(--dark-grey);
+  opacity: .4;
+}
+
+.newsletter-modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#newsletter-div {
+  padding: 1rem;
+  width: 18rem;
+  max-width: 80%;
+  background: whitesmoke;
+  border: 2px outset var(--light-grey);
+}
+
+.newsletter-span {
+  margin-right: 8.9em;
+}
+
+#newsletter-name, 
+#newsletter-email {
+  font-size: .9em;
+  border: 2px inset var(--light-grey);
+}
+
+#newsletter-submit {
+  padding: .2em 1.4em;
+  font-size: .9em;
+  margin: 0.2em .4em;
+  margin-top: 1em;
+  border: none;
+  background: var(--primary-color);
+  box-shadow: 2px 2px 4px lightgray;
+  color: var(--dark-grey);
+}
+
+#newsletter-open {
+  width: 100%;
+  padding: 1em;
+  border-radius: 0px;
+  border: none;
+  background: var(--secondary-color);
+  color: whitesmoke;
+  font-size: 1.2em;
+}
+
+#newsletter-open:hover {
+  background-color: var(--dark-grey);
+}
+
+#newsletter-close {
+  padding: .2em 1.4em;
+  font-size: .9em;
+  margin: 0.2em .4em;
+  border: none;
+  background: var(--primary-color);
+  box-shadow: 2px 2px 4px lightgray;
+  color: var(--dark-grey);
+}
+
+#newsletter-submit:hover, 
+#newsletter-close:hover {
+  background: var(--dark-grey);
+  color: whitesmoke;
+}
+
+#newsletter-thanks {
+  width: 100%;
+  padding: 1em;
+  border-radius: 0px;
+  border: none;
+  background: var(--secondary-color);
+  color: whitesmoke;
+  font-size: 1.2em;
+  text-align: center;
+}
+/* End Newsletter styles */
 
 /* Cart icon styles */
 .cart {
@@ -318,6 +407,54 @@ fieldset {
   text-decoration: none;
   color: var(--dark-grey);
 }
+
+.list-total {
+  text-align: right;
+}
+.list-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5em;
+}
+.list-footer > a {
+  /* display: block; */
+  padding: 0.3em 0.5em;
+  background-color: var(--primary-color);
+  text-decoration: none;
+  border-radius: 5px;
+}
+.list-footer a:link,
+.list-footer a:visited {
+  color: var(--dark-grey);
+}
+
+/* checkout styles */
+.checkout-form {
+  padding: 0.5em;
+}
+.checkout-form label {
+  display: block;
+}
+.checkout-form input {
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.checkout-summary > ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+.checkout-summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkout-summary input {
+  width: 25%;
+  font-size: 1em;
+}
+
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;
@@ -325,6 +462,7 @@ fieldset {
   padding: 0.5em;
   border: 1px solid var(--light-grey);
   max-width: 250px;
+  text-align: center;
 }
 .product-card h2,
 .product-card h3,
@@ -380,6 +518,15 @@ fieldset {
 .cart-card__quantity {
   grid-row: 1;
   grid-column: 3;
+  padding-left: 0.3em;
+}
+
+
+.cart-card__quantity button {
+  background-color: white;
+  color: black;
+  padding: 0.2em 0.4em;
+  display: inline;
 }
 
 .cart-card__quantity button {
@@ -403,6 +550,19 @@ fieldset {
   margin-top: 0.4em;
 }
 
+/* alert styles */
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  border: 1px solid darkorange;
+}
+.alert > p {
+  margin: 0;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -413,7 +573,7 @@ fieldset {
   }
   .cart-card {
     font-size: inherit;
-    grid-template-columns: 150px auto 15%;
+    grid-template-columns: 150px auto 25% 8%;
   }
 }
 
